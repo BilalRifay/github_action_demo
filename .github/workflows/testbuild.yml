@@ -3,7 +3,7 @@ name: Build and Deploy to Vercel
 on:
   push:
     branches:
-      - '**'
+      - '**'  # Run for all branches
 
 jobs:
   build:
@@ -25,10 +25,17 @@ jobs:
       - name: Build Next.js App
         run: npm run build
 
+      - name: Check for Missing Imports
+        run: |
+          if ! grep -r "import " ./pages ./components ./app; then
+            echo "Error: No modules are imported in the project!"
+            exit 1
+          fi
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: success()
+    if: success()  # Deploy only if the build succeeds
 
     steps:
       - name: Checkout Repository

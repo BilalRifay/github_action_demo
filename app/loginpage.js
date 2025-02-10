@@ -1,7 +1,7 @@
 "use client"
 
 import { GithubIcon, GoalIcon, Lock, Mail } from "lucide-react";
-import { useState } from "react";
+
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
