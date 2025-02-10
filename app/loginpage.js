@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState(""
+  const [password, setPassword] = useState("");
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100 p-4">
